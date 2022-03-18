@@ -12,7 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Group11_COMP1640_backend.Areas.Identity.Data;
+using ASP.NETCoreIdentityCustom.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +20,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
-namespace Group11_COMP1640_backend.Areas.Identity.Pages.Account
+namespace ASP.NETCoreIdentityCustom.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
     {
@@ -72,14 +72,15 @@ namespace Group11_COMP1640_backend.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [Display(Name ="Firstname")]
-            [StringLength(255, ErrorMessage = "The first name field should have the max of 255 characters")]
+            [StringLength(255, ErrorMessage = "The first name field should have a maximum of 255 characters")]
+            [Display(Name = "Firstname")]
             public string FirstName { get; set; }
 
             [Required]
+            [StringLength(255, ErrorMessage = "The last name field should have a maximum of 255 characters")]
             [Display(Name = "Lastname")]
-            [StringLength(255, ErrorMessage = "The last name field should have the max of 255 characters")]
             public string LastName { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -124,9 +125,9 @@ namespace Group11_COMP1640_backend.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
+
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
-                user.Email = Input.Email;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

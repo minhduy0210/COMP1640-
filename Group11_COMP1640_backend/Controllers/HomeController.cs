@@ -1,8 +1,8 @@
-﻿using Group11_COMP1640_backend.Models;
+﻿using ASP.NETCoreIdentityCustom.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Group11_COMP1640_backend.Controllers
+namespace ASP.NETCoreIdentityCustom.Controllers
 {
     public class HomeController : Controller
     {

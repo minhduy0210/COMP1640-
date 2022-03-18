@@ -1,4 +1,4 @@
-namespace Group11_COMP1640_backend.Models
+namespace ASP.NETCoreIdentityCustom.Models
 {
     public class ErrorViewModel
     {
